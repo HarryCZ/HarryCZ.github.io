@@ -1,0 +1,50 @@
+<section>
+    <style type='text/css' data-bind="text: style"></style>
+
+    <h1 data-bind="text: title"></h1>
+    <div class="wrapper">
+        <ul class="StepProgress" data-bind="foreach: { data: planItems().sort(function (l, r) { return (l.startDate == r.startDate) ? (l.startDate > r.startDate ? 1 : -1) : (l.startDate > r.startDate ? 1 : -1) }), as: 'item' }">
+            <li class="StepProgress-item" data-bind="css: $root.getPlanItemCSS(item)">
+                <div data-bind="if: item.type == 'TRIP'">
+                    <h4>
+                        <span data-bind="text: $root.getShortDate(item.startDate)"></span>
+                        <span>
+                            <i data-bind="visible: item.trip.transportType == 'Plane'" class="fas fa-plane"></i>
+                            <i data-bind="visible: item.trip.transportType == 'Boat'" class="fas fa-ship"></i>
+                            <i data-bind="visible: item.trip.transportType == 'Car'" class="fas fa-car"></i>
+                        </span>
+                        <span data-bind="text: $root.formatTransport(item,$index())"></span>
+                    </h4>
+                    <div class="moreInfo">
+                        <span>
+                            <i class="far fa-clock"></i>
+                            <span data-bind="text: $root.getTransportTime(item)"></span>
+                        </span>
+                            <span>
+                            <i class="fas fa-user"></i>
+                            <span data-bind="text: item.trip.passengers"></span>
+                        </span>
+                        <span>
+                            <i class="far fa-money-bill-alt"></i>
+                            <span data-bind="text: item.trip.cost * item.trip.passengers"></span>
+                        </span>
+                    </div>
+                </div>
+                <div data-bind="if: item.type == 'STAY'">
+                    <h4>
+                        <span data-bind="text: $root.getShortDate(item.startDate) + ' - ' + $root.getShortDate(item.endDate)"></span>
+                        <span data-bind="text: item.stay.place"></span>
+                    </h4>
+                    <div class="moreInfo">
+                        <i class="fas fa-moon"></i>
+                        <span data-bind="text: $root.getStayTime(item)"></span>
+                        <i class="fas fa-bed"></i>
+                        <span data-bind="text: item.stay.accommodation"></span>
+                        <i class="fas fa-utensils"></i>
+                        <span data-bind="text: item.stay.food"></span>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</section>

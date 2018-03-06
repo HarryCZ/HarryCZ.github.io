@@ -1,0 +1,149 @@
+﻿.navbar {display: none}
+/*!
+ * Durandal 2.1.0 Copyright (c) 2012 Blue Spire Consulting, Inc. All Rights Reserved.
+ * Available via the MIT license.
+ * see: http://durandaljs.com or https://github.com/BlueSpire/Durandal for details
+ */
+@import url("https://use.fontawesome.com/releases/v5.0.8/css/all.css"); /* FA CSS import */
+
+.splash {
+    text-align: center;
+    margin: 10% 0 0 0;
+}
+
+.splash .message {
+    font-size: 5em;
+    line-height: 1.5em;
+    -webkit-text-shadow: rgba(0, 0, 0, 0.5) 0 0 15px;
+    text-shadow: rgba(0, 0, 0, 0.5) 0 0 15px;
+    text-transform: uppercase;
+}
+
+.splash .fa-spinner {
+    text-align: center;
+    display: inline-block;
+    font-size: 5em;
+    margin-top: 50px;
+}
+
+.page-host {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50px;
+    bottom: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+section {
+    margin: 0 20px;
+}
+
+.navbar-nav li.loader {
+    margin: 12px 6px 0 6px;
+    visibility: hidden;
+}
+
+.navbar-nav li.loader.active {
+    visibility: visible;
+}
+
+.pictureDetail {
+    max-width: 425px;
+}
+
+/****************************************************************
+    CUSTOM
+
+ ******************************************************************/
+
+
+
+.wrapper {
+    font-family: 'Helvetica';
+    font-size: 14px;
+    line-height: normal;
+}
+.StepProgress {
+    position: relative;
+    padding-left: 45px;
+    list-style: none;
+}
+.StepProgress div {
+    margin-left: 30px;
+}
+.StepProgress::before {
+    display: inline-block;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 24px;
+    width: 10px;
+    height: 100%;
+    border-left: 2px solid #CCC;
+}
+.StepProgress-item {
+    position: relative;
+    counter-increment: list;
+}
+.StepProgress-item:not(:last-child) {
+    padding-bottom: 20px;
+}
+.StepProgress-item::before {
+    display: inline-block;
+    content: '';
+    position: absolute;
+    left: -21px;
+    height: 100%;
+    width: 10px;
+}
+.StepProgress-item::after {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    top: -4px;
+    left: -40px;
+    width: 40px;
+    height: 39px;
+    padding-top: 5px;
+    font-size: 22px;
+    text-align: center;
+    border: 2px solid #CCC;
+    border-radius: 50%;
+    background-color: #FFF;
+    font-family: "Font Awesome 5 Free";
+    font-style: normal;
+    font-weight: 900;
+    text-decoration: inherit;
+}
+.StepProgress-item.travel::after {
+    content: '\f0f2';
+}
+.StepProgress-item.stay::after {
+    content: '\f015';
+}
+.StepProgress-item.is-done::before {
+    border-left: 2px solid green;
+}
+.StepProgress-item.is-done::after {
+    content: "✔";
+    font-size: 10px;
+    color: #FFF;
+    text-align: center;
+    border: 2px solid green;
+    background-color: green;
+}
+.StepProgress-item.current::before {
+    border-left: 2px solid green;
+}
+.StepProgress-item.current::after {
+    content: counter(list);
+    color: green;
+    border: 2px solid green;
+    background-color: white;
+}
+.StepProgress strong {
+    display: block;
+}
