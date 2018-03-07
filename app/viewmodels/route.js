@@ -124,7 +124,7 @@ define(['durandal/app','knockout'], function (app,ko) {
             self.getTransports();
             setTimeout(function(){
                 self.getStays();
-            }, 50);
+            }, 500);
 
         };
         self.getShortDate = function (date) {
